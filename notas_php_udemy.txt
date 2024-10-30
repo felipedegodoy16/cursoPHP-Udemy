@@ -80,3 +80,35 @@ Tipos de dados
 -- esse tipo de dado tem apenas um valor, NULL
 -- um uso para esse tipo de dado é verificar se uma variável está ou não vazia
 -- podemos verificar se um valor é NULL com a função is_null()
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+Variáveis
+- salvar um valor na memória
+- em PHP as variáveis começam com $
+- variáveis de variáveis, usando $$ você cria uma variável a partir de outra com o nome do valor dessa variável
+- variável por referência "ponteiro" utiliza o símbolo =& se alterar o valor da uma altera o valor da outra também
+
+------------------------------------
+
+- Escopo da Variável
+
+-- local: variável declarada em uma função
+--- seu escopo é definido dentro da função
+--- não é acessível fora da mesma
+--- o seu valor é sempre resetado quando a função é finalizada 
+--- cada função poderá mexer com a mesma variável, porém, seu escopo será dentro da função, ou seja, quando a função acabar a variável voltará para seu valor global
+
+-- global: variáveos declaradas fora de funções
+--- é declarada fora de funções
+--- não são acessíveis dentro de funções
+--- é necessário utilizar a palavra global para conseguir utilizar a variável dentro de outra função, porém, utilizando dessa forma, se o valor for alterado localmente ele será alterado globalmente também, essa instrução global deve ser usada dentro da função que quero utilizar a variável
+
+-- static: variável declarada dentro da função, porém o seu valor permanece salvo entre chamadas da função
+--- declarada com a instrução static
+--- o valor da mesma é mantido e alterado a cada execução de uma função
+--- é interessante esse comportamente pois as variáveis de escopo local sempre são resetadas, mas nesse caso não, nesse caso o valor persiste
+
+-- parâmetros da função: variáveis passadas para uma função, podendo ser utilizadas ao da mesma
+--- este recurso ajuda a criar funções com valores dinâmicos, podendo ser alterado a cada vez que a função é chamada
+--- é possível passar mais de um parâmetro para a função
