@@ -1,0 +1,82 @@
+o PHP é dividido em duas vertentes:
+- Programação Backend: criação de sites dinêmicos, conexão e interação com banco de dados, geração de gráficos, documentos de XML e PDF
+- Scripts de linha de comando: rodar scripts para que ações sejam executadas no computador ou remotamente, administração de sistema ou até mesmo CRONs (rotinas que rodam em paralelo sem precisar que nós executemos)
+
+- É uma linguagem de programação que foi desenvolvida para deixar o HTML dinâmico
+- Linguagem de script e open source
+- Foco em desenvolvimento web
+- Seus programas são executadas em server side (backend)
+- PHP significa: Personal Home Page (P) e Hypertext Preprocessor (HP)
+
+o PHP interpreta todo o bloco de código que estiver entre as tags de PHP
+- a abertura é <?php
+- e o fechamento é ?>
+- cada linha de código termina com ;
+- todo o código dentro destas tags será executado pelo PHP, e após isso será impresso na tela
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+Funções que vem com o PHP
+- phpinfo() -> mostra as dependências do PHP que estão instaladas na máquina, mostra basicamente todas as informações sobre o PHP
+- is_int() -> verificar se o dado é do tipo inteiro, o retorno é um booleano
+- is_float() -> verificar se o dado é do tipo float, o retorno é um booleano
+- is_string() -> verificar se o dado é do tipo string, o retorno é um booleano
+- is_bool() -> verificar se o dado é do tipo booleano, o retorno é um booleano
+- is_null() -> verificar se o dado é NULL, o retorno é um booleano
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+PHP é case sensitive para variáveis, mas, para instruções não
+- echo = ECHO
+- $nome != $NOME
+
+- espaço em branco no PHP é ignorado
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+Palavras reservadas
+- Exemplos: echo, insteadof, else, interface, protected, require, and, public, __DIR__, __FILE__, endif, print, private, namespace, pow, as, break, case, for, finally, switch, throw...
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+Tipos de dados
+
+- Inteiros
+-- são os números que não possuem vírgula
+-- podem ser negativos também
+-- para validar se um número é inteiro usamos a função is_int()
+
+- Float
+-- são os números que possuem vírgula
+-- podem ser negativos também
+-- para validar se é um float usamos a função is_float()
+
+- String
+-- é possível escrever textos com aspas simples ou duplas
+-- as aspas duplas interpretam variáveis as simples não
+-- para validar se é uma string usamos a função is_string()
+
+- Boolean
+-- é um tipo de dado que possui dois valores (true or false)
+-- alguns valores são considerados falsos: 0, 0.0, "0", [], NULL
+-- booleano é usado para fazer validações
+-- para verificar se é um booleano é usado a função is_bool()
+
+- Array
+-- serve para agrupar um conjunto de valores
+-- é possível inserir qualquer tipo de dado dentro do array
+-- é definido com os valores dentro de colchetes [] e seus dados separdos por vígula , EX: [1, 2, 3, 4]
+-- todos os valores de um array possuem um índice, começando sempre do 0
+
+- Array Associativo
+-- é basicamente um array que possui uma chave e um valor
+-- a estrutura é igual mas será construído dessa maneira: $arr = ['nome' => 'Felipe', 'idade' => 19] chave entre aspas, seta para apontar o valor e o valor
+
+- Objetos
+-- no PHP é possível criar classes e objetos
+-- o objeto possui métodos que são suas ações e propriedades que são suas características
+
+- NULL
+-- esse tipo de dado tem apenas um valor, NULL
+-- um uso para esse tipo de dado é verificar se uma variável está ou não vazia
+-- podemos verificar se um valor é NULL com a função is_null()
