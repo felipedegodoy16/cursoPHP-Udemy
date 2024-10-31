@@ -24,6 +24,7 @@ Funções que vem com o PHP
 - is_bool() -> verificar se o dado é do tipo booleano, o retorno é um booleano
 - is_null() -> verificar se o dado é NULL, o retorno é um booleano
 - gettype() -> retorna o tipo de dado de algo
+- array_push() -> inserir elemento dentro de um array, (array, elemento)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -163,7 +164,7 @@ Expressões e Operadores
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-Estrutura de condição 
+Estruturas de controle 
 - if -> tem uma condição se verdadeira ele executa o código que estiver no bloco de códigos da estrutura
 - else if -> é igual um if, mas, com uma nova condição caso a primeira não seja verdadeira
 - else -> não possui condição, executa se nenhuma condição for verdadeira
@@ -173,3 +174,18 @@ Estrutura de condição
 - case -> são os valores que serão comparados pela variável pega pelo switch
 - break -> break é usado para parar um case e para sair do switch, se não colocar há a possibilidade de ele entrar em todos os cases 
 - default -> é como se fosse um else, se nenhum case for atendido ele executa o default
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+Estruturas de repetição
+- while -> enquanto uma condição for verdadeira ele repetirá isso, é necessário sempre alterar a variável que está sendo comparada para ter um stop do loop
+
+- do while -> ele executa uma vez pelo menos o código antes de fazer a comparação para sair do loop
+
+- for -> contador, condição e incremento/decremento todos na mesma linha, mais organizado e mais utilizado
+
+- foreach -> funciona somente com um array, se repete para cada item de um array
+
+- break -> usado para quebrar o loop antes de seu fim, para isso fazer uma condição que queira para quebrar sua repetição
+- continue -> pula a execução de um loop, ou seja, ele pula e vai pra próxima repetição do loop
+- pode haver um loop dentro de outro
