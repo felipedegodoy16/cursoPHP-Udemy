@@ -160,3 +160,16 @@ Expressões e Operadores
 -- como se fosse um if/else mais simplificado
 -- comparação ? true : false
 -- o dois pontos é opcional
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+Estrutura de condição 
+- if -> tem uma condição se verdadeira ele executa o código que estiver no bloco de códigos da estrutura
+- else if -> é igual um if, mas, com uma nova condição caso a primeira não seja verdadeira
+- else -> não possui condição, executa se nenhuma condição for verdadeira
+- pode haver um if dentro de outro
+
+- switch -> bem parecida com o if, porém não há a pssibilidade de comparações, é comparada a um valor fixo
+- case -> são os valores que serão comparados pela variável pega pelo switch
+- break -> break é usado para parar um case e para sair do switch, se não colocar há a possibilidade de ele entrar em todos os cases 
+- default -> é como se fosse um else, se nenhum case for atendido ele executa o default
