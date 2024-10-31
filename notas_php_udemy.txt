@@ -189,3 +189,39 @@ Estruturas de repetição
 - break -> usado para quebrar o loop antes de seu fim, para isso fazer uma condição que queira para quebrar sua repetição
 - continue -> pula a execução de um loop, ou seja, ele pula e vai pra próxima repetição do loop
 - pode haver um loop dentro de outro
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+Inlude
+- com o include inserimos um arquivo PHP ou até um HTML
+- pode ser usado tudo que está declarado no arquivo incluído
+- o include não gera erro fatal se o arquivo não existir, ou seja, não prejudica a execução scrypt, continua executando mesmo assim, gera apenas um warning e esse warning pode ser ocultado
+- include_once é a mesma coisa porém impede que você faça o include do mesmo arquivo mais de uma vez - mais recomendado
+
+Require
+- com o require inserimos um arquivo PHP ou até HTML
+- pode ser usado tudo que está declarado no arquivo incluído
+- o require gera erro fatal, então se o arquivo não existir o scrypt irá parar
+- require_once é a mesma coisa porém impede que você faça o require do mesmo arquivo mais de uma vez - mais recomendado
+
+- include_once e require_once se entendem então mesmo que faça o include_once de um arquivo e depois tente usar o require nesse mesmo arquivo ele não irá permitir
+
+* Para voltar um diretório é bom sempre colocar dessa maneira "include __DIR__ . '/../caminho_para_o_arquivo'", require é a mesma coisa
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+Short tags
+- <? código ?> -> tem alguns servidores que não suportam
+- não é bom usar, apenas saber que existe
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+Exibição de conteúdo
+- <?= "teste" ?> -> usado para exibir um conteúdo na tela, é um echo encurtado, para exibições rápidas, não aceita códigos dentro
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+Inserindo PHP ao HTML
+- uma das principais funcionalidades do PHP
+- é possível inserir códigos dinâmicos entre as tags
+- esse tipo de arquivo pode ser tanto .php quanto .phtml (.phtml pode dar conflito em alguns servidores, melhor usar .php mesmo)
