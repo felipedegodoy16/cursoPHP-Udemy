@@ -30,9 +30,24 @@ Funções que vem com o PHP
 - func_num_args -> retorna o número de argumentos de uma função
 - strlen() -> conta o número de caracteresda string passada por parâmetro
 - strtoupper() -> transforma o que for passado como parâmetro para letras maiúsculas
-- strtolower() -> transforma o que for passado como parâmetro para letras maiúsculas
-- strpos() -> passado dois parâmetros, uma string e p que quero achar dentro daquela string ('felipe', 'ei') dentro da string felipe quero achar as letras 'e' e 'i'
+- strtolower() -> transforma o que for passado como parâmetro para letras minúsculas
 - var_dump() e print_r() -> funções depuradoras, as duas apresentam os dados de forma semelhante, porém o var_dump() exibe de uma forma 'human_readable', da mais informações, desenvolvedores preferem ele por isso
+- print() -> para imprimir aquilo que é passado como parâmetro a ele, funciona igual ao echo
+- trim() -> limpa espaços antes e depois da string, é passado a string como parâmetro para ele
+- ltrim() -> limpa os espaços da esquerda da string (left trim), é passado a string como parâmetro para ele
+- rtrim() -> limpa os espaços da direita da string (right trim), é passado a string como parâmetro para ele
+- ucfirst() -> altera a primeira letra da string para maiúscula, é passado a string como parâmetro
+- ucwords() -> altera a primeira letra de cada palavra da string para maiúscula, é passado a string como parâmetro
+- strip_tags() -> altera uma string poluída, por exemplo, com tags HTML para uma string com apenas textos, é passado a string como parâmetro da função
+- substr() -> função para pegar uma parte específica de uma string, (str, ini, fim) str = string que você tem, ini = índice que inicia o que você quer pegar, fim = número de caracteres que precisa pegar a partir do início, se omitir o fim ele pega a partir do ini até o final da string e se o fim for negativo ele pega o final da string menos o número de caracteres que foi passado, então se fim = -3 ele pega o fim menos os 3 últimos caracteres
+- strrev() -> inverte uma string, é passado a string como parâmetro e ela é invertida
+- str_repeat() -> usado para repetir a string, é passado por parâmetro a string e o número de vezes que se repetirá
+- explode() -> usado para transformar a string em um array, é passado a string como parâmetro e o delimitador para se criar os índices EX: (" ", "Teste Teste") o delimitador é o espaço, converterá essa string em um array com dois índices [0] => Teste, [1] => Teste
+- implode() -> usado para transformar um array em uma string, é passado o separador e o array para se criar a string EX: (" ", ["Teste", "Teste"]) o separador é o espaço e o array é o que vem depois
+- strpos() - podemos encontrar algum texto na string, se recebermos algum valor é que o texto foi encontrado, e este valor é o índice inicial, se retornar false, o texto procurado não existe na string, é passado a string como parâmetro e o texto que quero achar dentro da string, ele procura também uma parte da string não precisa ser uma palavra inteira
+- strrpos() - igual ao strpos(), mas, esse encontra a última ocorrência de um texto na string, o strpos() retornava o primeiro que ele achava que saciasse aquele texto passado, o strrpos() retorna o último que sacia
+- strstr() -> usado para retornar a partir de um ponto da string até o final dela, é passado a string como parâmetro e a partir de onde ele irá pegar, EX: strstr($str, "resto"), vai pegar desde resto até o final da string, ou irá retornar false se não achar aquela string
+- parse_url() -> usado para decompor uma URL, recebemos um array com todas as parter que a URL tem, alguns elementos que podem ser retornados são: protocolo, host, parâmetros
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -66,7 +81,6 @@ Tipos de dados
 -- as aspas duplas interpretam variáveis as simples não
 -- para validar se é uma string usamos a função is_string()
 -- uma string dentro do PHP é vista como um array, para percorrer cada uma das letras dela basta usar a 'variável[contador]'
--- se quiser encontrar alguma letra específica basta usar strpos() -> passado dois parâmetros, uma string e o que quero achar dentro daquela string ('felipe', 'ei') dentro da string felipe quero achar a string 'ei', não retornará nada, mas se quiser achar a string 'el' retornará 1
 -- para fazer a contagem de letras de uma string utilizar sempre a função 'strlen()'
 - strtoupper() -> transforma o que for passado como parâmetro para letras maiúsculas
 - strtolower() -> transforma o que for passado como parâmetro para letras maiúsculas
@@ -260,3 +274,35 @@ Funções
 - func_get_arg -> retorna uma lista com os argumentos de uma função -> basta apenas colocar ela dentro da função que ela já pega a lista de argumentos que estão sendo passados, não precisa de parâmetros dentro dela
 - func_num_args -> retorna o número de argumentos de uma função -> basta apenas colocar ela dentro da função que ela já pega o número de argumentos que estão sendo passados, não precisa de parâmetros dentro dela
 - uma função pode também retornar uma lista de valores, não apenas um valor específico e aí acessar os índices de cada elemento da lista
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+Strings
+- é possível interpolar variáveis em strings de duas formas, interpolar é mostrar o valor da variável dentro de uma string
+- utilizando aspas duplas e colocando a variável e também com chaves e o nome da variável, não tem difenrença em ambas as formas EX: "Interpolando a variável $teste", "Interpolando a variável {$teste}"
+- ideal é que no seu programa você mantenha sempre a mesma sintaxe, se começou com chaves continua com chaves até o final, se começou sem chaves continua sem chaves até o final
+- há valores de escape que podem ser utilizados, isso só funciona com aspas duplas, se for simples não funciona pois ele não interpola EX: \\ para mostrar uma barra invertida, \t = tab, \$ = sinal do dólar, \n = nova linha
+- são usados apenas para mostrar em telas de texto pura, no HTML não funciona
+- print() -> é igual ao echo, porém é uma função e irá mostrar o que estiver dentro de seus parênteses
+- printf() -> igual a linguagem C, e tem a mesma funcionalidade que a função print, porém para imprimir algo é preciso colocar símbolo de porcentagem acompanhado do tipo de dado que será impresso EX: printf("Número %d", $var) -> %d para números inteiros 
+- strlen() -> para ter o retorno do número de caracteres que tem em uma string apenas a string é passada como parâmetro para essa função
+- para acessar cada um dos caracteres da string basta percorrer a string como se fosse um array
+- é possível remover espaçoes em branco de uma string com algumas funções
+- trim() -> limpa espaços antes e depois da string, é passado a string como parâmetro para ele
+- ltrim() -> limpa os espaços da esquerda da string (left trim), é passado a string como parâmetro para ele
+- rtrim() -> limpa os espaços da direita da string (right trim), é passado a string como parâmetro para ele
+- strtoupper() -> transforma o que for passado como parâmetro para letras maiúsculas
+- strtolower() -> transforma o que for passado como parâmetro para letras minúsculas
+- ucfirst() -> altera a primeira letra da string para maiúscula, é passado a string como parâmetro
+- ucwords() -> altera a primeira letra de cada palavra da string para maiúscula, é passado a string como parâmetro
+- strip_tags() -> altera uma string poluída, por exemplo, com tags HTML para uma string com apenas textos, é passado a string como parâmetro da função
+- substr() -> função para pegar uma parte específica de uma string, (str, ini, fim) str = string que você tem, ini = índice que inicia o que você quer pegar, fim = número de caracteres que precisa pegar a partir do início, se omitir o fim ele pega a partir do ini até o final da string e se o fim for negativo ele pega o final da string menos o número de caracteres que foi passado, então se fim = -3 ele pega o fim menos os 3 últimos caracteres
+- strrev() -> inverte uma string, é passado a string como parâmetro e ela é invertida
+- str_repeat() -> usado para repetir a string, é passado por parâmetro a string e o número de vezes que se repetirá
+- explode() -> usado para transformar a string em um array, é passado a string como parâmetro e o delimitador para se criar os índices EX: (" ", "Teste Teste") o delimitador é o espaço, converterá essa string em um array com dois índices [0] => Teste, [1] => Teste
+- implode() -> usado para transformar um array em uma string, é passado o separador e o array para se criar a string EX: (" ", ["Teste", "Teste"]) o separador é o espaço e o array é o que vem depois
+- strpos() - podemos encontrar algum texto na string, se recebermos algum valor é que o texto foi encontrado, e este valor é o índice inicial, se retornar false, o texto procurado não existe na string, é passado a string como parâmetro e o texto que quero achar dentro da string, ele procura também uma parte da string não precisa ser uma palavra inteira
+- strrpos() - igual ao strpos(), mas, esse encontra a última ocorrência de um texto na string, o strpos() retornava o primeiro que ele achava que saciasse aquele texto passado, o strrpos() retorna o último que sacia
+- geralmente o strpos é usado junto com a substr(), pois um retorna o índice e o outro pega a palavra EX: $pegaPalavra = substr($str, strpos($str, "teste"), 5);
+- strstr() -> usado para retornar a partir de um ponto da string até o final dela, é passado a string como parâmetro e a partir de onde ele irá pegar, EX: strstr($str, "resto"), vai pegar desde resto até o final da string, ou irá retornar false se não achar aquela string
+- parse_url() -> usado para decompor uma URL, recebemos um array associativo com todas as partes que a URL tem, alguns elementos que podem ser retornados são: protocolo, host, parâmetros
