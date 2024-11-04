@@ -48,6 +48,33 @@ Funções que vem com o PHP
 - strrpos() - igual ao strpos(), mas, esse encontra a última ocorrência de um texto na string, o strpos() retornava o primeiro que ele achava que saciasse aquele texto passado, o strrpos() retorna o último que sacia
 - strstr() -> usado para retornar a partir de um ponto da string até o final dela, é passado a string como parâmetro e a partir de onde ele irá pegar, EX: strstr($str, "resto"), vai pegar desde resto até o final da string, ou irá retornar false se não achar aquela string
 - parse_url() -> usado para decompor uma URL, recebemos um array com todas as parter que a URL tem, alguns elementos que podem ser retornados são: protocolo, host, parâmetros
+- range() -> função para criar um array rapidamente, basta passar como parâmetros o valor inicial, o valor final e se quiser o passo que ele irá, se essa última informação for ignorada ele fará de 1 em 1
+- count() -> retorna o número de elementos de um array, é passado o array como parâmetro para essa função
+- list() -> usado para desconstruir um array, é passado por parâmetro as variáveis que quero criar e na frente o array que uero pegar as informações EX: list($nome, $idade, $profissao) = $pessoa
+- array_slice() -> podemos resgatar uma faixa de elementos, é passado 3 parâmetros para essa função, sendo o array, o índice inicial e número de elementos que queremos resgatar, assim como o substring se o último parâmetro for omitido ele pega até o final do array e se o parâmetro for negativo ele pega do final menos o número de elementos que foi passado
+- array_splice() -> remover elementos de um array, passado como parâmetro o array, índice inicial e quantos elementos queremos remover, igual o slice
+- array_chunk() -> dividir um array grande em diversos arrays de número de elementos iguais, passamos o array e o número de elementos que cada array deve ter 
+- array_keys() -> usado no array associativo, retorna as chaves do array em formato de outro array, é passado por parâmetro apenas o array associativo
+- array_values() -> usado no array associativo, retorna os valores do array em formato de outro array, é passado por parâmetro apenas o array associativo
+- array_key_exists() -> verificar se uma chave específica existe dentro daquele array associativo, é passado por parâmetro a chave que quero verificar se existe e o array EX: array_key_exists("nome", $arr), retorna um booleano
+- isset() -> usado também para verificar se algo existe, igual o array_key_exists(), EX: isset($arr['nome']), verifica se a chave nome existe dentro do array, usado para variáveis também
+- extract() -> criar variáveis com o array associativo, igual o list, mas esse é para arrays associativos, o nome da chave será o nome da variável, se houver uma variável com o mesmo nome da chave a mesma será sobrescrita pelo valor que tiver no array, é passado apenas o array como parâmetro
+- compact() -> podemos criar um array a partir de variáveis, onde o nome da variável será a chave e seu valor o valor mesmo, é passado por parâmetro as variáveis porém, em forma de string, EX: $carro = compact("marca", "motor") // as variáveis eram ($marca, $motor)
+- foreach() -> para arrays associativos podemos usar a notação (chave => valor) para acessar rapidamente um valor no array associativo, para arrays normais é passado por parâmetro o array e um nome qualquer que vai ser o valor de cada índice, já para arrays associativos é passado o array mais um nome qualquer que representa a chave => um nome qualquer que representa o valor
+- array_reduce() -> tem como objetivo reduzir um array a apenas um valor, geralmente é usado uma segunda função dentro dessa função para que algum processo seja executado e fique apenas um valor EX: function soma($a, $b) { return $a + $b; } array_reduce($arr, "soma") // ele vai somar todos os índices do array e retornar o resultado
+- in_array() -> verifica se um item passado por parâmetro está no array, é passado o item e o array como parâmetros, o retorno é um booleano true se encontrar o item e false se não encontrar
+- sort() -> ordenar de forma crescente um array, é passado por parâmetro o array que queremos ordenar, não é preciso colocá-lo dentro de outra variável, a organização ocorre dentro dele mesmo, se for um array com strings ele organiza em ordem alfabética
+- rsort() -> ordenar de forma decrescente um array, é passado por parâmetro o array que queremos ordenar, não é preciso colocá-lo dentro de outra variável, a organização ocorre dentro dele mesmo, se for um array com strings ele organiza em ordem alfabética
+- asort() -> para ordenar de forma crescente os valores de um array associativo, funciona como o sort()
+- arsort() -> para ordenar de forma decrescente os valores de um array associativo, funciona como o rsort()
+- ksort() -> para ordenar de forma crescente as chaves de um array associativo, funciona como o sort()
+- krsort() -> para ordenar de forma decrescente as chaves de um array associativo, funciona como o rsort()
+- array_reverse() -> retorna um array invertido, não mexe na estrutura original do array, ou seja, precisamos armazenar seu valor em uma variável, é passado apenas o array como argumento
+- shuffle() -> reorganizar os itens de um array de forma aleatória, passamos o array como parâmetro, é retornado o próprio array, ou seja, muda a estrutura original do array 
+- array_sum() -> soma todos os itens de um array, retorna a soma de todos os valores numnéricos do array, é passado o array como argumento e é retornado a soma de tudo, o que não for número é ignorado pela função 
+- array_merge() -> podemos unir arrays com essa função, é passado por parâmetro um número indeterminado de arrays 
+- array_diff() -> verifica a diferença entre dois ou mais arrays, aceita um número indeterminado de arrays como parâmetro, a ideia é sempre o que tem de diferente no primeiro array que passei com os demais arrays que foram passados EX: array_diff($arr1, $arr2) // retornará apenas os valores do $arr1 que não fizerem intersecção com o $arr2
+- array_filter() -> para filtrar elementos do array de alguma forma, geralmente é passado o array como parâmetro e mais uma função que vai expressar uma condição a ser seguida para retornar o valor EX: $retorno = array_filter($array, "funcao")
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -306,3 +333,41 @@ Strings
 - geralmente o strpos é usado junto com a substr(), pois um retorna o índice e o outro pega a palavra EX: $pegaPalavra = substr($str, strpos($str, "teste"), 5);
 - strstr() -> usado para retornar a partir de um ponto da string até o final dela, é passado a string como parâmetro e a partir de onde ele irá pegar, EX: strstr($str, "resto"), vai pegar desde resto até o final da string, ou irá retornar false se não achar aquela string
 - parse_url() -> usado para decompor uma URL, recebemos um array associativo com todas as partes que a URL tem, alguns elementos que podem ser retornados são: protocolo, host, parâmetros
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+Arrays 
+- para adicionar um item ao fim do array, basta colocar o nome do array com colchetes atribuindo o valor, EX: $arr[]  valor
+- range() -> função para criar um array rapidamente, basta passar como parâmetros o valor inicial, o valor final e se quiser o passo que ele irá, se essa última informação for ignorada ele fará de 1 em 1
+- count() -> retorna o número de elementos de um array, é passado o array como parâmetro para essa função
+- podemos criar um array multidimensional, também conhecido como matriz
+- para acessar elementos desses arrays também é por meio de índices EX: $arr = [ [1, 2, 3], [2, 4, 6] ] é como se colocasse outros dois arrays dentro de um único array e para acessar o elemento basta colocar seus índices EX: $arr[1][2] // elemento de valor 6
+- para imprimir o array interno com o for podemos usar o count($arr[$i]) -> isso irá contar os elementos do array que está dentro do outro array
+- podemos criar outras variáveis com base em um array
+- list() -> usado para desconstruir um array, é passado por parâmetro as variáveis que quero criar e na frente o array que uero pegar as informações EX: list($nome, $idade, $profissao) = $pessoa
+- array_slice() -> podemos resgatar uma faixa de elementos, é passado 3 parâmetros para essa função, sendo o array, o índice inicial e número de elementos que queremos resgatar, assim como o substring se o último parâmetro for omitido ele pega até o final do array e se o parâmetro for negativo ele pega do final menos o número de elementos que foi passado
+- array_splice() -> remover elementos de um array, passado como parâmetro o array, índice inicial e quantos elementos queremos remover, igual o slice, importante, o próprio array se ajusta para os índices ficarem na ordem certa
+- array_chunk() -> dividir um array grande em diversos arrays de número de elementos iguais, passamos o array e o número de elementos que cada array deve ter
+- array_keys() -> usado no array associativo, retorna as chaves do array em formato de outro array, é passado por parâmetro apenas o array associativo
+- array_values() -> usado no array associativo, retorna os valores do array em formato de outro array, é passado por parâmetro apenas o array associativo
+- array_key_exists() -> verificar se uma chave específica existe dentro daquele array associativo, é passado por parâmetro a chave que quero verificar se existe e o array EX: array_key_exists("nome", $arr), retorna um booleano
+- isset() -> usado também para verificar se algo existe, igual o array_key_exists(), EX: isset($arr['nome']), verifica se a chave nome existe dentro do array, usado para variáveis também
+- extract() -> criar variáveis com o array associativo, igual o list, mas esse é para arrays associativos, o nome da chave será o nome da variável, se houver uma variável com o mesmo nome da chave a mesma será sobrescrita pelo valor que tiver no array, é passado apenas o array como parâmetro
+- compact() -> podemos criar um array a partir de variáveis, onde o nome da variável será a chave e seu valor o valor mesmo, é passado por parâmetro as variáveis porém, em forma de string, EX: $carro = compact("marca", "motor") // as variáveis eram ($marca, $motor)
+- foreach() -> para arrays associativos podemos usar a notação (chave => valor) para acessar rapidamente um valor no array associativo, para arrays normais é passado por parâmetro o array e um nome qualquer que vai ser o valor de cada índice, já para arrays associativos é passado o array mais um nome qualquer que representa a chave => um nome qualquer que representa o valor
+- array_reduce() -> tem como objetivo reduzir um array a apenas um valor, geralmente é usado uma segunda função dentro dessa função para que algum processo seja executado e fique apenas um valor EX: function soma($a, $b) { return $a + $b; } array_reduce($arr, "soma") // ele vai somar todos os índices do array e retornar o resultado
+- in_array() -> verifica se um item passado por parâmetro está no array, é passado o item e o array como parâmetros, o retorno é um booleano true se encontrar o item e false se não encontrar
+- sort() -> ordenar de forma crescente um array, é passado por parâmetro o array que queremos ordenar, não é preciso colocá-lo dentro de outra variável, a organização ocorre dentro dele mesmo, se for um array com strings ele organiza em ordem alfabética
+- rsort() -> ordenar de forma decrescente um array, é passado por parâmetro o array que queremos ordenar, não é preciso colocá-lo dentro de outra variável, a organização ocorre dentro dele mesmo, se for um array com strings ele organiza em ordem alfabética
+- asort() -> para ordenar de forma crescente os valores de um array associativo, funciona como o sort()
+- arsort() -> para ordenar de forma decrescente os valores de um array associativo, funciona como o rsort()
+- ksort() -> para ordenar de forma crescente as chaves de um array associativo, funciona como o sort()
+- krsort() -> para ordenar de forma decrescente as chaves de um array associativo, funciona como o rsort()
+- array_reverse() -> retorna um array invertido, não mexe na estrutura original do array, ou seja, precisamos armazenar seu valor em uma variável, é passado apenas o array como argumento
+- shuffle() -> reorganizar os itens de um array de forma aleatória, passamos o array como parâmetro, é retornado o próprio array, ou seja, muda a estrutura original do array 
+- array_sum() -> soma todos os itens de um array, retorna a soma de todos os valores numnéricos do array, é passado o array como argumento e é retornado a soma de tudo, o que não for número é ignorado pela função 
+- array_merge() -> podemos unir arrays com essa função, é passado por parâmetro um número indeterminado de arrays 
+- array_diff() -> verifica a diferença entre dois ou mais arrays, aceita um número indeterminado de arrays como parâmetro, a ideia é sempre o que tem de diferente no primeiro array que passei com os demais arrays que foram passados EX: array_diff($arr1, $arr2) // retornará apenas os valores do $arr1 que não fizerem intersecção com o $arr2
+- array_filter() -> para filtrar elementos do array de alguma forma, geralmente é passado o array como parâmetro e mais uma função que vai expressar uma condição a ser seguida para retornar o valor EX: $retorno = array_filter($array, "funcao")
+- max() -> retorna o valor máximo dentro de um array, é passado o array como parâmetro e é retornado apenas o maior valor que estiver dentro desse array
+- min() -> retorna o valor mínimo dentro de um array, é passado o array como parâmetro e é retornado apenas o menor valor que estiver dentro desse array
