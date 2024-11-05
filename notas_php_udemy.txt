@@ -75,6 +75,8 @@ Funções que vem com o PHP
 - array_merge() -> podemos unir arrays com essa função, é passado por parâmetro um número indeterminado de arrays 
 - array_diff() -> verifica a diferença entre dois ou mais arrays, aceita um número indeterminado de arrays como parâmetro, a ideia é sempre o que tem de diferente no primeiro array que passei com os demais arrays que foram passados EX: array_diff($arr1, $arr2) // retornará apenas os valores do $arr1 que não fizerem intersecção com o $arr2
 - array_filter() -> para filtrar elementos do array de alguma forma, geralmente é passado o array como parâmetro e mais uma função que vai expressar uma condição a ser seguida para retornar o valor EX: $retorno = array_filter($array, "funcao")
+- max() -> retorna o valor máximo dentro de um array, é passado o array como parâmetro e é retornado apenas o maior valor que estiver dentro desse array
+- min() -> retorna o valor mínimo dentro de um array, é passado o array como parâmetro e é retornado apenas o menor valor que estiver dentro desse array
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -371,3 +373,38 @@ Arrays
 - array_filter() -> para filtrar elementos do array de alguma forma, geralmente é passado o array como parâmetro e mais uma função que vai expressar uma condição a ser seguida para retornar o valor EX: $retorno = array_filter($array, "funcao")
 - max() -> retorna o valor máximo dentro de um array, é passado o array como parâmetro e é retornado apenas o maior valor que estiver dentro desse array
 - min() -> retorna o valor mínimo dentro de um array, é passado o array como parâmetro e é retornado apenas o menor valor que estiver dentro desse array
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+Orientação a Objetos
+- objetos que são entidades que possuem comportamentos (métodos/funções) e características (atributos/propriedades/variáveis)
+- objetos interagem entre si e sistemas são escritos orientados a objetos
+- classes são "moldes" de um objeto, sempre que precisar instanciar um objeto é necessário uma classe, a classe contém seus métodos e suas propriedades
+- é possível mudar o valor para cada objeto criado, mas ele parte do que a classe impõe
+- para iniciar uma classe é necessário usar a a palavra "class" e dar um nome a essa classe, por padrão sempre utilizamos a primeira letra em maiúsculo no nome da class
+- para instanciar um objeto é necessário utilizar a palavra "new" em conjunto do nome da classe 
+- a partir daí uma entidade com as características da classe será criada, normalmente é normal encapsular isso em uma variável EX: $pessoa = new Pessoa()
+- para declarar um método vamos utilizar a sintaxe de function, porém dentro da classe, é uma função normal igual já foi visto antes
+- para acessar um método por exemplo da classe a partir de um objeto basta colocar o nome do objeto + -> + o que quer acessar EX: $pessoa->falar();
+- propriedades são basicamente variáveis dentro de uma classe, porém, as variáveis tem uma visibilidade dentro da class, podendo ser public, private ou protected
+- this se refere a instância atual do objeto, se refere basicamente ao objeto atual, usado dentro da própria classe geralmente, assim você generaliza os métodos podendo chamar eles para qualquer instância
+- contantes são parecidas com variáveis, porém seus valores não são alterados durante a execução do programa 
+- constantes costumam ter seu nome todo em maiúsculo, assim fazemos para separar variáveis normais de constantes, não é necessário o cifrão para fazer a declaração e para acessar uma constante usa-se '::' no lugar de '->' EX: public const CHAVE_API = "api_teste" // para acessar basta usar :: EX: $conexao::CHAVE_API
+- para acessar dentro da classe no lugar de 'this' usa-se 'self' EX: self::NOME_CONSTANTE
+- public: a propriedade ou método pode ser acessada de qualquer forma, por qualquer um
+- protected: a propriedade ou método pode ser acessada apenas pela classe de origem ou as que a recebem por herança
+- private: a propriedade ou método poder ser acessada apenas pela classe que foi criada 
+- herança é o recurso que permite com que uma classe filha herde propriedades e métodos de uma classe pai, a palavra reservada utilizada para isso é a 'extends'
+- para checar a ancestralidade de uma classe ou objeto é usado o 'instanceof' EX: $pessoa instanceof Humano // isso irá retornar um booleano 
+- interfaces também são modelos de definição de uma classe, toda classe ue implementar uma interface, será obrigada a implementar suas propriedades e métodos, é utilizada a palavra 'implements', ma interface nenhum método ou propriedade são definidos, estão lá apenas para forçar a classe que implementar essa interface a também implementar aquelas propriedades e métodos 
+- para criar a interface é igual uma class, porém , no lugar de colocar 'class nome_class' vai ser 'interface nome_interface'
+- traits permitem o uso do código sem hieraruia de classes, ou seja, sem herança, podemos assim utilizar os métodos da classe ue foi feita a trait, é utilizada a palavra reservada 'use', para mostrar que será uma trait é como declarar a class, porém, temos que colocar 'trait nome_trait', para usar basta colocar dentro da classe que você quer utilizar 'use nome_trait'
+- classes abstratas não podem ser instanciadas, podemos ter métodos abstratos, que devem ser implementados obrigatoriamente pela classe que herda a abstrata, a palavra reservada é 'abstract' EX: abstract class ClasseAbstrata {}
+- construtores, basicamente é inicializar os objetos com alguns valores pre definidos e passar valores únicos para cada objeto, para criar esse método, basta inicializar o construtor com '__construct'
+- classes anônimas são criadas em uma variável e não possuem nome, funcionam como qualquer outra classe e essa é preciso fechar com ';' EX: $anonima = new class() { código };
+- class_exists() -> verifica se uma classe existe, é passado uma classe como parâmetro e recebe um booleano de volta EX: class_exists("Humano")
+- get_class_methods() -> passa uma classe por parâmetro e recebe seus métodos como resposta, recebe um array com os métodos EX: get_class_methods("Humano")
+- get_class_vars() -> passa uma classe por parâmetro e recebe suas propriedades como resposta, recebe um array com as propriedades EX: get_class_vars("Humano")
+- is_object() -> verifica se uma variável é um objeto, retorna um booleano EX: is_object($var)
+- get_class() -> verifica a qual classe aquele objeto pertence, retorna a classe a qual esse objeto pertence EX: get_class($var)
+- method_exists() -> verifica se um método existe em um objeto EX: method_exists($var, "nome_metodo")
