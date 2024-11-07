@@ -77,6 +77,14 @@ Funções que vem com o PHP
 - array_filter() -> para filtrar elementos do array de alguma forma, geralmente é passado o array como parâmetro e mais uma função que vai expressar uma condição a ser seguida para retornar o valor EX: $retorno = array_filter($array, "funcao")
 - max() -> retorna o valor máximo dentro de um array, é passado o array como parâmetro e é retornado apenas o maior valor que estiver dentro desse array
 - min() -> retorna o valor mínimo dentro de um array, é passado o array como parâmetro e é retornado apenas o menor valor que estiver dentro desse array
+- date() -> essa função recebe o parâmetro que vai ser a formatação da data, pega a data atual do sistema EX: date("d/m/y")
+- strtotime() -> recebe uma string como parâmetro e tenta transformar essa string em uma data EX: date('d/m/y', strtotime('+2 years')) // 2 anos a mais na data atual
+- mktime() -> recebe como parâmetro: hora, minuto, segundo, mês, dia e ano e criar uma data a partir dessas informações que foram passadas EX: $data = mktime(02, 12, 33, 02, 05, 1991) -> date('d/m/y', $data)
+- DateTime() -> permite tratar a data como um objeto, é possível passar um parâmetro que será a data criada, retorna um array, porém, não é possível acessar suas propriedades apenas instanciando esse objeto 
+- format() e modify() -> pertence a classe DateTime e ajuda a manipular os dados do objeto intanciado, format -> formata a data e modify() -> altera a data
+- setDate() e setTime() -> dois métodos interessantes para se usar com o DateTime, setDate() -> recebe ano, mês e dia, altera completamente a data e setTime() -> rece hora, minuto e segundo, altera completamente o tempo da data
+- diff() -> método para calcular a diferença entre duas datas, para fazer a comparação é necessário que as duas data esjam instanciadas com o DateTime EX: $dataA->diff($dataB)
+- date_default_timezone_set() -> recebe um fuso horário como parâmetro
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -408,3 +416,16 @@ Orientação a Objetos
 - is_object() -> verifica se uma variável é um objeto, retorna um booleano EX: is_object($var)
 - get_class() -> verifica a qual classe aquele objeto pertence, retorna a classe a qual esse objeto pertence EX: get_class($var)
 - method_exists() -> verifica se um método existe em um objeto EX: method_exists($var, "nome_metodo")
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+Datas
+- date() -> essa função recebe o parâmetro que vai ser a formatação da data, pega a data atual do sistema EX: date("d/m/y")
+- strtotime() -> recebe uma string como parâmetro e tenta transformar essa string em uma data EX: date('d/m/y', strtotime('+2 years')) // 2 anos a mais na data atual
+- mktime() -> recebe como parâmetro: hora, minuto, segundo, mês, dia e ano e criar uma data a partir dessas informações que foram passadas EX: $data = mktime(02, 12, 33, 02, 05, 1991) -> date('d/m/y', $data)
+- DateTime() -> permite tratar a data como um objeto, é possível passar um parâmetro que será a data criada, retorna um array, porém, não é possível acessar suas propriedades apenas instanciando esse objeto 
+- format() e modify() -> pertence a classe DateTime e ajuda a manipular os dados do objeto intanciado, format -> formata a data e modify() -> altera a data
+- setDate() e setTime() -> dois métodos interessantes para se usar com o DateTime, setDate() -> recebe ano, mês e dia, altera completamente a data e setTime() -> rece hora, minuto e segundo, altera completamente o tempo da data
+- diff() -> método para calcular a diferença entre duas datas, para fazer a comparação é necessário que as duas data esjam instanciadas com o DateTime EX: $dataA->diff($dataB)
+- é possível usar os operadores de com paração para comparar duas datas diferentes, ou seja, ver se uma data está mais a frente futuramente que outra ou mais no passado que a outra ou se as duas estão no mesmo dia 
+- date_default_timezone_set() -> recebe um fuso horário como parâmetro
