@@ -429,3 +429,71 @@ Datas
 - diff() -> método para calcular a diferença entre duas datas, para fazer a comparação é necessário que as duas data esjam instanciadas com o DateTime EX: $dataA->diff($dataB)
 - é possível usar os operadores de com paração para comparar duas datas diferentes, ou seja, ver se uma data está mais a frente futuramente que outra ou mais no passado que a outra ou se as duas estão no mesmo dia 
 - date_default_timezone_set() -> recebe um fuso horário como parâmetro
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+PHP e a WEB 
+- Requisições PHP
+-- GET -> solicita a apresentação de um recurso (ex: visualização de uma página)
+-- POST -> envio de dados ao servidor (ex: cadastro de usuário)
+-- PUT -> atualização de dados 
+-- DELETE -> remoção de dados
+-- PATCH -> atuaização de dado específico 
+
+- para conseguir lidar com essas requisições o PHP fornece algumas variáveis globais
+-- $_ENV -> variáveis de ambiente
+-- $_GET -> parâmetros que foram enviados através da request GET, ou seja, pela url 
+-- $_POST -> parâmetros que foram enviados por POST
+-- $_COOKIE -> valores de cookies
+-- $_SESSION -> como se fosse um cookie mas é melhor para salvar alguns dados
+-- $_SERVER -> informações sobre o servidor 
+-- $_FILES -> informações sobre os arquivos que vieram por upload
+
+- $_SERVER 
+-- SERVER_SOFTWARE -> identificação do servidor, saber qual software ta rodando no servidor
+-- SERVER_NAME -> Hostname, DNS ou IP do servidor
+-- SERVER_PROTOCOL -> protocolo do servidor 
+-- SERVER_PORT -> porta do servidor 
+-- QUERY_STRING -> argumentos após o ? na url
+
+- processamento de formulários, há duas maneiras desse processamento, via GET e via POST, o GET processo a query string, ou seja, na url, com o POST processamos as informações que vem na requisição, não aparecem na url 
+- exemplo de uso é: GET = buscas e POST = registro de usuário
+
+- é possível criar uma página que faz o processamentos dos dados e também exibe o input de informações 
+- para isso é necessário criar um if que checa o método de requisição e a partir disso criar variações ($_SERVER['REQUEST_METHOD'])
+
+- para receber um array de inputs marcados em um checkbox por exemplo, basa colocar o name com '[]' depois dele, e colocar o mesmo name pra todos, name="caracerisicas[]"
+
+- Upload de arquivos
+-- primeiro alerar o atributo enctype do formuláio para: multipart/form-data
+-- necessário também um input do tipo file
+-- o tamanho do arquivo pode exaurir a memória do servidor, colocar sempre um tamanho máximo de arquivo para não correr esse risco
+-- quando enviado o formulário  global $_FILE terá as informações do arquivo que foram enviados 
+-- $_FILE -> é possível o tamanho do arquivo que o usuário subiu, assim conseguindo manejar o tamanho do arquivo para não pesar no servidor 
+
+- Validação de formulários
+-- É possível fazer validações com JS e HTML, porém, não é bom deixar essas validações apenas com eles, pois, o front-end é facilmente manipulável
+
+- $_COOKIE 
+-- strings que contém informações 
+-- setcookie() -> para adicionar um cookie 
+-- a função deve ser chamada antes do corpo da página, o envio de dados é através do header (cabeçalho)
+-- cookie leva dados como: nome, valor e data de expiração
+
+- $_SESSION
+-- é possível criar uma variável que persiste em diferentes páginas e perdura por várias visitas ao mesmo site 
+-- utiliza recursos de cookies para funcionar e se o recurso estiver desabilitado propaga a sessão via url 
+-- são utilizadas para: verificação, carrinho de compras e tudo o que precisa persistir de página em página
+-- mais utilizado que o cookie 
+-- sessions são salvas em arquivos no computador que estamos ou no servidor da aplicação
+-- esses arquivos são salvos em php.ini na configuração session.save_path
+-- as sessions podem ser salvas em dois formatos: o ptóptio do PHP e também o Web Distributed Data eXchange (WDDX)
+-- toda página deve ter 'session_start()' para que as sessions sejam inicializadas naquela página
+-- a session basicamente salva o id da sessão nos cookies e busca as informações dentro daquele arquivo que está salvando as sessions
+
+- SSL Secure Sockets Layer
+-- o PHP não se importa muito e não tem vantagens sobre o SSL 
+-- porém garantimos que as requisições de dados entre nosso site e servidor estejam mais seguras com a encriptação dos dados 
+-- devemos apenas ter cuidados com os formulários, para que sejam enviados para a url com HTTPS, pois, alguns servidores bloqueiam a conexão HTTP
+-- Cloudflare -> é um software que disponibiliza certificado ssl gratuito, sempre colocar para maior segurança dos dados, um e-commerce por exemplo não aceitaria pagamentos se não tivesse uma certificação
+-- para dados de formulários é muito importante essa certificação e sempre verificar se está sendo enviado os dados para o domínio certo 
